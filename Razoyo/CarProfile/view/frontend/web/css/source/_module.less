@@ -1,0 +1,49 @@
+@import '_variables.less'; // Adjust path if necessary
+
+.vehicle-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; // Adjust spacing between cards
+}
+
+img.vehicle-image {
+    width: 100%;
+}
+
+.vehicle-card {
+    background-color: @card-background-color;
+    border-radius: @card-border-radius;
+    box-shadow: @card-box-shadow;
+    overflow: hidden;
+    width: 100%; // Adjust width for two columns
+    margin: 0;
+
+    .vehicle-card-header {
+        background-color: @header-background-color;
+        color: @header-text-color;
+        padding: @header-padding;
+        text-align: center;
+
+        .vehicle-make-model {
+            margin: 0;
+            font-size: @make-model-font-size;
+        }
+
+        .vehicle-year {
+            font-size: @year-font-size;
+        }
+    }
+
+    .vehicle-card-body {
+        padding: @body-padding;
+
+        p {
+            margin: @body-margin;
+            font-size: @body-font-size;
+
+            strong {
+                font-weight: @strong-font-weight;
+            }
+        }
+    }
+}

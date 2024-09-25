@@ -1,0 +1,61 @@
+      <div class="vehicle-card-container">
+        <!-- Vehicle Card -->
+        <div class="vehicle-card">   
+            <div class="form-container form-address-edit">
+                <form id="car-form" class="form form-inline vehicle-card-body" action="<?= $block->getUrl('*/account/save') ?>" method="post">
+                    <fieldset class="fieldset info">
+                        <div class="field">
+                            <label class="label" for="car-dropdown"><span><?= __('Select Car') ?></span></label>
+                            <div class="control">
+                                <select id="car-dropdown" name="car" class="select">
+                                    <option value="">-- <?= __('Select') ?> --</option>
+                                    <?php foreach ($block->getCars() as $car): ?>
+                                        <option <?= ($block->getCarId() == $car['id']) ? 'selected' : '' ?> value="<?= $car['id'] ?>">
+                                            <?= htmlspecialchars($car['year'] . ' ' . $car['make'] . ' ' . $car['model']) ?>
+                                        </option>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <button type="submit" class="action primary">
+                                    <span><?= __('Submit') ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+</div>
+</div>
+<br/>
+
+<?php if ($block->getCars() !== null) : ?>
+    <div class="vehicle-card-container">
+        <!-- Vehicle Card -->
+        <div class="vehicle-card">
+            <?php if ($block->getCarId() !== '') : ?>
+                <?php 
+                $vehicle = $block->getCarDetails($block->getCarId()); 
+
+
+                ?>
+                <div class="vehicle-card-header">
+                    <h2 class="vehicle-make-model"><?php echo htmlspecialchars($vehicle['car']['make']) . ' ' . htmlspecialchars($vehicle['car']['model']); ?></h2>
+                    <p class="vehicle-year"><?php echo __('Year: %1', htmlspecialchars($vehicle['car']['year'])); ?></p>
+                </div>
+                <div class="vehicle-card-body">
+                    <img src="<?php echo $vehicle['car']['image']; ?>" alt="<?php echo htmlspecialchars($vehicle['car']['make'] . ' ' . $vehicle['car']['model']); ?>" class="vehicle-image"/>
+                    <p><strong><?php echo __('Seats:'); ?></strong> <?php echo htmlspecialchars($vehicle['car']['seats']); ?></p>
+                    <p><strong><?php echo __('Price:'); ?></strong> $<?php echo number_format(htmlspecialchars($vehicle['car']['price']),2); ?></p>
+                    <p><strong><?php echo __('MPG:'); ?></strong> <?php echo htmlspecialchars($vehicle['car']['mpg']); ?></p>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+
+
+<?php endif; ?>

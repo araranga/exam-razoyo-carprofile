@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\Csp\ConfigInterface">
+        <arguments>
+            <argument name="whitelist" xsi:type="array">
+                <item name="carprofile_module" xsi:type="array">
+                    <item name="default-src" xsi:type="array">
+                        <item name="exam.rayozo.com" xsi:type="string"/>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

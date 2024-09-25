@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/ui_configuration.xsd">
+    <form name="customer_form">
+        <fieldset name="general">
+            <field name="car_id" sortOrder="100">
+                <settings>
+                    <dataType>text</dataType>
+                    <label translate="true">Car ID</label>
+                    <dataScope>car_id</dataScope>
+                    <visible>true</visible>
+                    <required>false</required>
+                </settings>
+            </field>
+        </fieldset>
+    </form>
+</config>
